@@ -89,11 +89,11 @@ rails db:create db:migrate
 #### 4️⃣ **Rodar o servidor**
 
 ```bash
-rails server
+foreman start -f procfile.dev
 ```
 
 Acesse em:
-👉 **[http://localhost:3000](http://localhost:3000)**
+👉 **[http://localhost:5000](http://localhost:5000)**
 
 ---
 
