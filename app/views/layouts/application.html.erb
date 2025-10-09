@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Url Shortener" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-gray-100 min-h-screen relative">
+    <!-- Alertas -->
+    <% if notice || alert %>
+      <div id="flash-messages" class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+        <% if notice %>
+          <div class="bg-green-500 text-white px-4 py-2 rounded shadow mb-2">
+            <%= notice %>
+          </div>
+        <% end %>
+        <% if alert %>
+          <div class="bg-red-500 text-white px-4 py-2 rounded shadow">
+            <%= alert %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <main class="container mx-auto mt-28 px-5 flex">
+      <%= yield %>
+    </main>
+
+    <script>
+      // Remove os alertas após 3 segundos
+      setTimeout(() => {
+        const flash = document.getElementById("flash-messages");
+        if (flash) {
+          flash.style.transition = "opacity 0.5s ease";
+          flash.style.opacity = "0";
+          setTimeout(() => flash.remove(), 500);
+        }
+      }, 3000);
+    </script>
+  </body>
+</html>

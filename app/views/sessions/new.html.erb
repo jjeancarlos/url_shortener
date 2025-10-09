@@ -1,0 +1,15 @@
+<div class="max-w-sm mx-auto mt-10 p-6 bg-white rounded-xl shadow">
+  <h1 class="text-2xl font-bold mb-4 text-center">Login</h1>
+  <%= form_with url: login_path, method: :post, class: "space-y-4" do |f| %>
+    <div>
+      <%= f.label :email, class: "block text-sm font-medium" %>
+      <%= f.text_field :email, class: "w-full border rounded p-2" %>
+    </div>
+    <div>
+      <%= f.label :password, class: "block text-sm font-medium" %>
+      <%= f.password_field :password, class: "w-full border rounded p-2" %>
+    </div>
+    <%= f.submit "Entrar", class: "w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700" %>
+  <% end %>
+  <p class="mt-4 text-center text-sm">Não tem conta? <%= link_to "Cadastre-se", signup_path, class: "text-blue-600 hover:underline" %></p>
+</div>

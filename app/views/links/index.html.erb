@@ -1,0 +1,28 @@
+<div class="max-w-2xl mx-auto mt-10">
+  <div class="flex justify-between items-center mb-4">
+    <h1 class="text-2xl font-bold">Meus Links</h1>
+    <div class="flex items-center space-x-2">
+      <%= link_to "Novo", new_link_path, class: "bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700" %>
+      <%= button_to "Sair", logout_path, method: :delete, class: "text-gray-600 hover:underline bg-transparent border-none cursor-pointer" %>
+    </div>
+  </div>
+
+  <% if @links.any? %>
+    <% @links.each do |link| %>
+      <div class="p-4 bg-white rounded shadow mb-3">
+        <p><strong>Original:</strong> <%= link_to link.original_url, link.original_url, target: "_blank", class: "text-blue-600 hover:underline" %></p>
+        <p><strong>Curto:</strong> <%= short_url(link.short_code) %></p>
+
+        <div class="mt-2 flex items-center space-x-3">
+          <%= link_to "Ver", link, class: "text-blue-600 hover:underline" %>
+          
+          <!-- Substituímos link_to por button_to -->
+          <%= button_to "Excluir", link, method: :delete, data: { confirm: "Excluir este link?" },
+              class: "text-red-600 hover:underline bg-transparent border-none cursor-pointer" %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p class="text-gray-600 text-center mt-6">Nenhum link criado ainda.</p>
+  <% end %>
+</div>
