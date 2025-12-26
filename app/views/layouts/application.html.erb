@@ -10,37 +10,38 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-gray-100 min-h-screen relative">
-    <!-- Alertas -->
+  <body class="bg-linear-to-br from-slate-900 via-indigo-900 to-slate-900 min-h-screen relative text-gray-100 font-sans antialiased selection:bg-pink-500 selection:text-white">
+    
     <% if notice || alert %>
-      <div id="flash-messages" class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+      <div id="flash-messages" class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-4">
         <% if notice %>
-          <div class="bg-green-500 text-white px-4 py-2 rounded shadow mb-2">
+          <div class="backdrop-blur-md bg-emerald-500/80 border border-emerald-400/50 text-white px-6 py-3 rounded-xl shadow-lg mb-2 flex items-center justify-center font-medium animate-bounce-in">
             <%= notice %>
           </div>
         <% end %>
         <% if alert %>
-          <div class="bg-red-500 text-white px-4 py-2 rounded shadow">
+          <div class="backdrop-blur-md bg-rose-500/80 border border-rose-400/50 text-white px-6 py-3 rounded-xl shadow-lg flex items-center justify-center font-medium animate-bounce-in">
             <%= alert %>
           </div>
         <% end %>
       </div>
     <% end %>
 
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="container mx-auto pt-20 px-4 md:px-0 pb-10 flex flex-col items-center justify-center min-h-[80vh]">
       <%= yield %>
     </main>
 
     <script>
-      // Remove os alertas após 3 segundos
+      // Remove os alertas após 4 segundos com efeito fade
       setTimeout(() => {
         const flash = document.getElementById("flash-messages");
         if (flash) {
-          flash.style.transition = "opacity 0.5s ease";
+          flash.style.transition = "opacity 0.7s ease, transform 0.7s ease";
           flash.style.opacity = "0";
-          setTimeout(() => flash.remove(), 500);
+          flash.style.transform = "translate(-50%, -20px)";
+          setTimeout(() => flash.remove(), 700);
         }
-      }, 3000);
+      }, 4000);
     </script>
   </body>
 </html>
