@@ -1,0 +1,13 @@
+{
+  "search.exclude": {
+    "**/vendor": true,
+    "**/tmp": true,
+    "**/log": true
+  },
+  "files.watcherExclude": {
+    "**/vendor/**": true,
+    "**/tmp/**": true,
+    "**/log/**": true
+  },
+  "rubyLsp.bundleGemfile": "Gemfile"
+}
