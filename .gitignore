@@ -35,3 +35,6 @@
 
 /app/assets/builds/*
 !/app/assets/builds/.keep
+
+# Ignore vendor/bundle directory created by Bundler.
+/vendor/bundle
