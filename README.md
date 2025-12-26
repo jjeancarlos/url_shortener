@@ -5,6 +5,10 @@
 Este projeto é um **Encurtador de URLs** desenvolvido em **Ruby on Rails** com **PostgreSQL** e **TailwindCSS**, sem o uso do Devise.
 O sistema permite que **usuários autenticados** criem e gerenciem seus próprios links encurtados de forma segura e simples.
 
+### Página de Login
+![login_page](./assets/2025-12-25-224613_hyprshot.png)
+### Página de links
+![links_history](./assets/2025-12-25-224638_hyprshot.png)
 ---
 
 ### 🎯 **Objetivos da Atividade**
@@ -22,7 +26,7 @@ Atender aos seguintes **requisitos de negócio**:
 ### ⚙️ **Tecnologias Utilizadas**
 
 * **Ruby 3.4+**
-* **Rails 7+**
+* **Rails 8**
 * **PostgreSQL**
 * **TailwindCSS** (para o estilo visual)
 * **Importmap** (para gerenciar JavaScript nativo)
@@ -172,8 +176,19 @@ A interface utiliza **TailwindCSS**, garantindo um layout limpo e responsivo:
 | GET    | `/:short_code` | links#redirect   | Redireciona para URL original |
 
 ---
+## 💻 Dicas para VS Code
 
-## 🎥 Demonstração em Vídeo
+Para garantir que o **Ruby LSP** (Intellisense/Autocomplete) funcione corretamente e não apresente erros de versão:
+
+1. O projeto possui um arquivo `.ruby-version` definindo a versão exata do Ruby.
+2. **Sempre abra o VS Code pelo terminal** para carregar corretamente o ambiente:
+```bash
+cd analisador_rails
+code .
+
+```
+
+3. Utilize a extensão oficial **Ruby LSP** (Shopify).
 
 ## 🎥 Demonstração em Vídeo
 
